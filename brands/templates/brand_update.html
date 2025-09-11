@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Editar Marca</h2>
+        <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="{% url 'brand_list' %}" class="btn btn-secondary">Cancelar</a>
+        <a href="{% url 'brand_delete' brand.id %}" class="btn btn-danger">Excluir</a>
+        </form>
+    </div>
+    {% endblock %}

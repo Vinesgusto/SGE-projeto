@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Detalhes do Fornecedor</h3>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ object.name }}</h5>
+            <p class="card-text"><strong>Descrição:</strong> {{ object.description }}</p>
+        </div>
+    </div>
+     <a href="{% url 'supplier_list' %}" class="btn btn-secondary mt-4">Voltar</a>
+
+     {% if user.is_authenticated %}
+        <a href="{% url 'supplier_update' object.id %}" class="btn btn-primary mt-4">Editar</a>
+        <a href="{% url 'supplier_delete' object.id %}" class="btn btn-danger mt-4">Excluir</a>
+    {% endif %}
+    
+</div>
+
+{% endblock %}

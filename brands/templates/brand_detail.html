@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Detalhes da Marca</h3>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ object.name }}</h5>
+            <p class="card-text"><strong>Descrição:</strong> {{ object.description }}</p>
+        </div>
+    </div>
+     <a href="{% url 'brand_list' %}" class="btn btn-secondary mt-4">Voltar</a>
+
+     {% if user.is_authenticated %}
+        <a href="{% url 'brand_update' brand.id %}" class="btn btn-warning mt-4">Editar</a>
+        <a href="{% url 'brand_delete' brand.id %}" class="btn btn-danger mt-4">Excluir</a>
+    {% endif %}
+    
+</div>
+
+{% endblock %}
