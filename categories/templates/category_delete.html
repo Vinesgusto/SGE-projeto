@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
+{% block title %}SGE - Excluir Categoria{% endblock %}
+
 {% block content %}
 <div class="container mt-4">
     <h2>Confirmar Exclusão</h2>
-    <p>Tem certeza que deseja excluir a marca "{{ object.name }}"?</p>
+    <p>Tem certeza que deseja excluir a Categoria "{{ object.name }}"?</p>
     <form method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Excluir</button>

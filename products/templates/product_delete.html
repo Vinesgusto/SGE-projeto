@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %}SGE - Excluir Fornecedor{% endblock %}
+{% block title %}SGE - Excluir Produto{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
     <h2>Confirmar Exclusão</h2>
-    <p>Tem certeza que deseja excluir o Fornecedor "{{ object.name }}"?</p>
+    <p>Tem certeza que deseja excluir o Produto "{{ object.name }}"?</p>
     <form method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Excluir</button>
-        <a href="{% url 'supplier_list' %}" class="btn btn-secondary">Cancelar</a>
+        <a href="{% url 'product_list' %}" class="btn btn-secondary">Cancelar</a>
     </form>
 {% endblock %}

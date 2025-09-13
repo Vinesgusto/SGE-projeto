@@ -1,6 +1,7 @@
 from django import forms
 from .models import Inflow
 
+
 class InflowForm(forms.ModelForm):
     class Meta:
         model = Inflow
@@ -17,4 +18,5 @@ class InflowForm(forms.ModelForm):
             'quantity': 'Quantidade',
             'description': 'Descrição',
         }
+    
     

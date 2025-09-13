@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block title %}
+
+SGE - Categorias
+
+{% endblock %}
+
 {% block content %}
 
 
@@ -16,16 +22,16 @@
         </form>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 mt-3">
         <a href="{% url 'category_create' %}" class="btn btn-success float-end">
             <i class="bi bi-plus-lg"></i> Adicionar Categoria
         </a>
     </div>
 </div>
 
-<h3 class="display-8">Categorias</h3>
+<h3 class="display-8 mt-5">Categorias</h3>
 
-<div class="table-responsive">
+<div class="table-responsive mt-3">
     <table class="table table-striped table-bordered">
         <thead class="thead-dark">
             <tr>
