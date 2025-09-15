@@ -1,4 +1,5 @@
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from app import metrics
 from django.urls import reverse_lazy
 from categories.models import Categories
 from brands.models import Brand
@@ -36,6 +37,7 @@ class ProductListView(ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['product_metrics'] = metrics.get_products_metrics()
         context['categories'] = Categories.objects.all()
         context['brands'] = Brand.objects.all()
         return context
