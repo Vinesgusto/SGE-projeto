@@ -1,4 +1,4 @@
-
+import dj_database_url
 from pathlib import Path
 import os
 
@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-ln2o8lw*5f2zg1%a1-q9kn4w4f%_bex9*%k03kl%f6ojk##)2h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -27,8 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'brands','products','suppliers',
-    'categories','inflows','outflows',
+    'brands', 'products', 'suppliers',
+    'categories', 'inflows', 'outflows',
 ]
 
 MIDDLEWARE = [
@@ -39,6 +39,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -66,9 +68,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 }
 
 
